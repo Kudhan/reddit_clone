@@ -12,11 +12,13 @@ const Header = () => {
   const { user } = useUser();
   const { toggleSidebar, open, isMobile } = useSidebar();
 
+  //const isBanned = user?.publicMetadata["IS_BANNED"] as boolean;
+
   return (
     <header className="flex items-center justify-between p-4 border-b border-gray-200">
-      <div className="flex items-center gap-2">
+      <div className="h-10 flex items-center">
         {/* Sidebar toggle */}
-        {open ? (
+        {open && !isMobile? (
           <ChevronLeftIcon className="w-6 h-6 cursor-pointer" onClick={toggleSidebar} />
         ) : (
           <Bars2Icon className="w-6 h-6 cursor-pointer" onClick={toggleSidebar} />
